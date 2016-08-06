@@ -1,0 +1,154 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 2, 2016, 12:50:43 PM
+    Author     : suryadeep
+*/
+
+.login-page{
+    background-image: url(http://widewallpaper.info/wp-content/uploads/2016/01/flat-wallpaper-sunset-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.form-container{
+    padding: 40px;
+    background-color: rgba(255,255,255,0.90);
+    margin: 0 auto;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
+.verticalLine {
+    border-right: solid rgba(178, 190, 181, 1);
+}
+
+.register-button{
+    margin-top: 20px;
+    display: inline-block
+}
+
+.right-coloumn{
+    padding: 50px;
+}
+
+.score-page{
+    background: #B24592; /* fallback for old browsers */
+    background-image: linear-gradient(90deg, rgb(46, 204, 113) 36%, rgb(41, 128, 185) 100%);
+    background-image: -moz-linear-gradient(left, rgb(46, 204, 113) 36%, rgb(41, 128, 185) 100%);
+    background-image: -webkit-linear-gradient(left, rgb(46, 204, 113) 36%, rgb(41, 128, 185) 100%);
+    background-image: -o-linear-gradient(left, rgb(46, 204, 113) 36%, rgb(41, 128, 185) 100%);
+    background-image: -ms-linear-gradient(left, rgb(46, 204, 113) 36%, rgb(41, 128, 185) 100%);
+}
+
+.circle{
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50%;
+    font-size: 1.8em;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+.score-div{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: 50%;
+    margin-right: 20%;
+    top: 30%;
+    background: rgba(255,255,255, 0.8);
+    text-align: center;
+}
+
+.score-div span{
+    line-height: 200px;
+}
+
+.level-score{
+    position: absolute;
+    left:50%;
+    top: 20%;
+}
+
+.easy-div{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.80);
+    text-align: center;
+}
+
+.easy-div span{
+    line-height: 150px;
+}
+
+.medium-div{
+    display: inline-block;
+    width: 175px;
+    height: 175px;
+    background: rgba(255, 255, 255, 0.80);
+    text-align: center;
+}
+
+.medium-div span{
+    line-height: 175px;
+}
+
+.medium-div span.height-extender{
+    visibility: hidden
+}
+
+.hard-div{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.80);
+    text-align: center;
+}
+
+.hard-div span{
+    line-height: 200px;
+}
+
+/*form{
+    background-color: rgba(255,255,255,0.75);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 250px;
+    border-radius: 3px;
+    font-size: 1.4em;
+}
+
+form div{
+    position: absolute;
+    padding: 20px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 160px;
+}
+
+form div label{
+    display: block
+}
+form div input{
+    width: 100%;
+    height: 30px;
+}
+
+input[type=submit] {
+    height: 30px;
+}*/

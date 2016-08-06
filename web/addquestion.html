@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Add Quesitons | Only for ADMINS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="addquestion.jsp" method="POST">
+            <input type="text" name="question" required><br>
+            <input type="text" name="option1" required><br>
+            <input type="text" name="option2" required><br>
+            <input type="text" name="option3" required><br>
+            <input type="text" name="option4" required><br>
+            <select name="level">
+                <option value="1">High</option>
+                <option value="2">Medium</option>
+                <option value="3">Easy</option>
+            </select>
+            <select name="subject">
+                <option value="cs">Computer Science</option>
+                <option value="ms">Maths</option>
+            </select>
+            <input type="number" name="answer" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

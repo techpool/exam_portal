@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login | Exam Portal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body class="login-page">
+        <div class="container">
+            <div class="row form-container registration-form">
+                <form class="col s12 m6 verticalLine" action="register.jsp" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" placeholder="Enter your name" name="fullname"  class="validate"><br>
+                            <label for="fullname">Full Name: </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="email" placeholder="Enter your email" name="email"  class="validate"><br>
+                            <label for="email">E-mail: </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="password" placeholder="Enter your password" name="password" class="validate"><br>
+                            <label for="password">Password: </label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Register
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+                <div class="col s12 m6 center-align">
+                    <div class="right-coloumn">
+                        <h5>Already registered?</h5>
+                        <a class="waves-effect waves-light btn-large login-button ">Login</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="row form-container login-form">
+                <form class="col s12 m6 verticalLine" action="login.jsp" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="email" placeholder="Enter your email" name="email"  class="validate"><br>
+                            <label for="email">E-mail: </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="password" placeholder="Enter your password" name="password" class="validate"><br>
+                            <label for="password">Password: </label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+                <div class="col s12 m6 center-align">
+                    <div class="right-coloumn">
+                        <h5>Not yet registered?</h5>
+                        <a class="waves-effect waves-light btn-large register-button ">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
