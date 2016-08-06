@@ -37,6 +37,8 @@ and open the template in the editor.
     padding: 50px;
 }
 
+/* score page */
+
 .score-page{
     background: #B24592; /* fallback for old browsers */
     background-image: linear-gradient(90deg, rgb(46, 204, 113) 36%, rgb(41, 128, 185) 100%);
@@ -117,6 +119,40 @@ and open the template in the editor.
     line-height: 200px;
 }
 
+/* profile page */
+
+#myChart{
+    height: 300px;
+}
+
+/* question page */
+.question-page{
+    
+    background-image: linear-gradient(90deg, rgb(241, 196, 15) 10%, rgb(46, 204, 113) 100%);
+    background-image: -moz-linear-gradient(left, rgb(241, 196, 15) 10%, rgb(46, 204, 113) 100%);
+    background-image: -webkit-linear-gradient(left, rgb(241, 196, 15) 10%, rgb(46, 204, 113) 100%);
+    background-image: -o-linear-gradient(left, rgb(241, 196, 15) 10%, rgb(46, 204, 113) 100%);
+    background-image: -ms-linear-gradient(left, rgb(241, 196, 15) 10%, rgb(46, 204, 113) 100%);
+}
+
+.glossy{
+    padding-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 0 10px 10px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 10px 10px -10px rgba(0,0,0,0.75);
+    box-shadow: 0 10px 10px -10px rgba(0,0,0,0.75);
+}
+
+.question-num-area{
+    margin-top: 40px;
+}
+
+.question-num-area .current-question{
+    font-size: 4em;
+}
+.question-num-area .by{
+    font-size: 2em;
+}
 /*form{
     background-color: rgba(255,255,255,0.75);
     position: absolute;
