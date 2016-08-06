@@ -13,7 +13,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Profile Page | Exam Portal</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="js/script.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.js"></script>
     </head>
     <body>
@@ -44,14 +49,66 @@
             String testFetch = "select * from (select * from tests order by test_id desc limit 20) tmp order by tmp.test_id asc";
             PreparedStatement ps1 = connection.prepareStatement(testFetch);
             ResultSet rs1 = ps1.executeQuery();
-            int[] scores = new int[20];
+            double[] scores = new double[20];
             int counter = 0;
             while(rs1.next()){
-                scores[counter] = Integer.parseInt(rs.getString("percentage"));
+                scores[counter] = Double.parseDouble(rs1.getString("percentage"));
                 counter++;
             }
+            
+            connection.close();
         %>
-        <canvas id="myChart" height="100vh"></canvas>
+        <ul id="dropdown1" class="dropdown-content">
+                <li><a href="profile.jsp">Profile</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
+        </ul>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><img src="https://cdn3.iconfinder.com/data/icons/science-flat-round/512/report_document_reports_paper_graph_chart-512.png" height="50px" style="margin-top: 5px; margin-left: 5px;"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Top Scorers</a></li>
+                    <li><a href="badges.html">Take another exam!</a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <canvas id="myChart"></canvas>
+            <hr>
+            <div class="row">
+                <div class="row center-align">
+                    <h4>Take a Test!</h4>
+                </div>
+                <form class="col s12" id="exam-form">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <select name="subject">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="mt">Maths</option>
+                        </select>
+                        <label>Choose a subject: </label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">list</i>
+                            <input type="number" id="noq" name="noq" class="validate">
+                            <label for="noq">Number of Questions</label>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s6">
+                            <a class="waves-effect waves-light btn-large" id="each-question">Take test with one question at a time</a>
+                        </div>
+                        <div class="col s6">
+                            <a class="waves-effect waves-light btn-large" id="all-question">Take test with all question at a time</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
         <script>
             var scores = [];
             var labels = [];
@@ -61,6 +118,7 @@
                 labels[<%= i %>] = '<%= i+1 %>';
             <%}%> 
             $(function() {
+                $('select').material_select();
                 var data = {
                     labels: labels,
                     datasets: [
@@ -103,6 +161,15 @@
                             }]
                         }
                     }
+                });
+                
+                $("#each-question").on("click", function(e){
+                    e.preventDefault();
+                    $('#exam-form').attr('action', "exam.jsp").submit();
+                });
+                $("#all-question").on("click", function(e){
+                    e.preventDefault();
+                    $('#exam-form').attr('action', "exam_all.jsp").submit();
                 });
             });
         </script>
