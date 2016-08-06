@@ -145,6 +145,7 @@
                 session.setAttribute("question_num", Integer.toString(question_numInt));
                 response.sendRedirect("exam.jsp");
             }
+            connection.close();
         %>
     </body>
 </html>

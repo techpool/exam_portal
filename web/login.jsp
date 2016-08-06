@@ -41,6 +41,7 @@
                 session.setAttribute("email", email);
                 response.sendRedirect("profile.jsp");
             }
+            connection.close();
         %>
     </body>
 </html>

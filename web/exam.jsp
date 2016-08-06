@@ -13,8 +13,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Exam | Exam Portal</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.js"></script>
     </head>
-    <body>
+    <body class="question-page">
         <%
             
             if((String)session.getAttribute("email") == null){
@@ -69,25 +76,56 @@
             } else {
                 skip = Integer.parseInt((String)session.getAttribute("hard"));
             }
-            
-            int counter = 0;
-            while(rs.next()){
-                if(counter < skip){
-                    counter++;
-                    continue;
-                }
-                session.setAttribute("question_id", rs.getString("question_id"));
-                out.println(rs.getString("question"));
-                out.println(rs.getString("option1"));
-                out.println(rs.getString("option2"));
-                out.println(rs.getString("option3"));
-                out.println(rs.getString("option4"));
-                break;
-            }
         %>
-        <form action="answer_check.jsp" method="POST">
-            <input type="number" name="answer">
-            <input type="submit" value="Submit Answer">
-        </form>
+        <ul id="dropdown1" class="dropdown-content">
+                <li><a href="profile.jsp">Profile</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
+        </ul>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><img src="https://cdn3.iconfinder.com/data/icons/science-flat-round/512/report_document_reports_paper_graph_chart-512.png" height="50px" style="margin-top: 5px; margin-left: 5px;"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Top Scorers</a></li>
+                    <li><a href="badges.html">Take another exam!</a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row glossy">
+            <div class="col s3 question-num-area center-align">
+                <span class="current-question"><%= question_num %></span>
+                <span class="by"> / </span>
+                <span class="noq"><%= noq %></span>
+                
+            </div>
+            <div class="col s9 question-area">
+                <div class="row">
+                    
+                </div>
+                <form class="col s12" action="answer_check.jsp" method="POST">
+                <%
+                    int counter = 0;
+                    while(rs.next()){
+                        if(counter < skip){
+                            counter++;
+                            continue;
+                        }
+                        session.setAttribute("question_id", rs.getString("question_id"));
+                        out.println(rs.getString("question") + "<br>");
+                        out.println("<p><input class='with-gap' name='answer' value=1 type='radio' id='option1'/><label for='option1'>"+rs.getString("option1")+"</label></p>");
+                        out.println("<p><input class='with-gap' name='answer' value=2 type='radio' id='option2'/><label for='option2'>"+rs.getString("option2")+"</label></p>");
+                        out.println("<p><input class='with-gap' name='answer' value=3 type='radio' id='option3'/><label for='option3'>"+rs.getString("option3")+"</label></p>");
+                        out.println("<p><input class='with-gap' name='answer' value=4 type='radio' id='option4'/><label for='option4'>"+rs.getString("option4")+"</label></p>");
+                        break;
+                    }
+                    connection.close();
+                %>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit Answer
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
