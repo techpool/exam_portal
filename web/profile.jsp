@@ -46,7 +46,7 @@
                 name = rs.getString("fullname");
             }
             
-            String testFetch = "select * from (select * from tests order by test_id desc limit 20) tmp order by tmp.test_id asc";
+            String testFetch = "select * from (select * from tests where email='"+email+"'order by test_id desc limit 20) tmp order by tmp.test_id asc";
             PreparedStatement ps1 = connection.prepareStatement(testFetch);
             ResultSet rs1 = ps1.executeQuery();
             double[] scores = new double[20];
